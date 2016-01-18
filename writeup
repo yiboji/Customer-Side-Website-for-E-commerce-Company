@@ -1,0 +1,50 @@
+1.name:Yibo Ji
+2.homework3 link: 
+    a.customer side: cs-server.usc.edu:62526/myhomework3/mainpage.php
+    b.manager side: cs-server.usc.edu:62526/src/login.php
+3.Account:
+    a.customer: 
+        account:yiboji; password:0000;
+        account:sgou;   password:0000;
+    b.manager account:sgou; password:0000;
+4.Introduction to my homework
+    a.In main page, special sale pruducts are showed in a photo slide viewer.Customer can click on these photos for detail product information.
+    b.Then, in the category bar, each category has a special sublist as well. 
+    c. After click on a product on main page, a more detail product information will be displayed.Customer can click 'Add To Cart' to add it into cart.
+        And customer don't need to sign in or sign up at first.
+    d. When mouse hover on the 'Bag', it will show you what products you already added into cart. If a product has a special sale, original price with a line go through it and a new price will be shown together. You can also add and substract quantity by clicking 'add' and 'substract' button.   
+    e. A list of recommandent products will also be shown in cart.Customer can also clear cart by clicking 'clear cart' button.
+    f. Then clicking place order customer can see a summary of what they decided to buy.
+    g. Then check out. If customer didn't sign in before, they have to sign in, or click 'Become a member' inside 'Sign in' tag to sign up. 
+    h. After sign in or sign up, customer can continue to check out. 
+    i. Customer can also track their order history and update their profile by click 'edit profile' and 'track my order' inside the tag on top right which is shown by their name.
+5. Manager part
+    a. Manager can also search sale information by select 'seach sale information' in search selection list.Manager can look up sale information by category, special sale,date, as so on. Manager can also look up all sale information sorted by sale quantity and sale price.  
+    b. Mananger can hover mouse on product pictures to see more detail sale information about that product. 
+    c. A Total Sale of products that manager want to know will be shown on middle left.
+6. New Datebase information:
+    Table:orderdate
+        orderID:int(11) Auto_Increment Primary key
+        customerID:int(11)
+        orderdate:date
+    Table:customer
+        customerID:int(11) Auto_Increment Primary key
+        username:text;
+        firstname:text;
+        lastname:text;
+        password:vachar(18)
+        address:text;
+        zipcode:int(5);
+        cardnumber:text;
+        expiredate:date;
+    Table:orders
+        orderID:int(11);
+        productID:int(11);
+        quantity:int(11);
+7. Known problem about my homework:
+    When I test on a laptop with a smaller screen, I try to create a account by click 'Become a member' inside the sign in bar. However, it is hard to click it. I mean because of smaller screen, you may have to move mouse more accurately, Or you could set browser into full screen. otherwise it will slide up.(because I write program in a bigger screen and I have no time to fix it).   
+8. Log in session will be time out after 300 secs for customers.
+9. I zipped and uploard into dropbox the updated files of homework2 only
+
+Thanks.
+    

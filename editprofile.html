@@ -1,0 +1,87 @@
+<?php
+    $sql = "select * from customer where username='".$_SESSION['username']."'";
+    $con = mysql_connect('cs-server.usc.edu:8317', 'root', '')
+    or die('Unable to connect');
+    $select = mysql_select_db('users', $con)
+    or die('Could not select users');
+    $res = mysql_query($sql)
+    or die('Invalid query');
+    $row = mysql_fetch_array($res);
+?>
+<form id="form-edit" action="editprofile.php?userID=<?php echo $row['customerID'];?>" onsubmit="return validation()" method="post">
+    <table frame="void"><tr><td style="vertical-align: top; padding-left:0px;padding-right:20px; border-right:solid 1px grey;">
+        <h2>edit your profile</h2>
+        <ul style="padding-left:0px;list-style:none;">
+            <li>
+                <p>
+                    <label>USER NAME</label><br/>
+
+                    <input class="input" type="text" id="username" name="username" value="<?php echo $row['username'];?>"/>
+                </p>
+            </li>
+            <li>
+                <p>
+                    <label>FIRST NAME</label><br/>
+                    <input class="input" type="text" id="firstname" name="firstname" value="<?php echo $row['firstname'];?>"/>
+                </p>
+            </li>
+            <li>
+                <p>
+                    <label>LAST NAME</label><br/>
+                    <input class="input" type="text" id="lastname" name="lastname" value="<?php echo $row['lastname'];?>"/>
+                </p>
+            </li>
+            <li>
+                <p>
+                    <label>PASSWORD</label><br/>
+                    <input class="input" type="password" id="password" name="password" value="<?php echo $row['password'];?>"/>
+                </p>
+            </li>
+            <li>
+                <p>
+                    <label>RE-ENTER PASSWORD</label><br/>
+                    <input class="input" type="password" id="re-password" name="re-password" value="<?php echo $row['password'];?>"/>
+                </p>
+            </li>
+        </ul>
+    </td>
+
+        <td style="vertical-align: top;padding-left:20px">
+            <ul style="list-style:none;padding-left:0px">
+                <h2>mail info</h2>
+                <li>
+                    <p>
+                        <label>ADDRESS</label><br/>
+                        <input class="input" type="text" id="address" name="address" value="<?php echo $row['address'];?>"/>
+                    </p>
+                </li>
+                <li>
+                    <p>
+                        <label>ZIP CODE</label><br/>
+                        <input class="input" type="text" id="zipcode" name="zipcode" value="<?php echo $row['zipcode'];?>"/>
+                    </p>
+                </li>
+                <h2>Pay Method</h2>
+                <li>
+                    <p>
+                        <label>Credit Card Number</label><br/>
+                        <input class="input" type="text" id="cardnumber" name="cardnumber" value="<?php echo $row['cardnumber'];?>"/>
+                    </p>
+                </li>
+                <li>
+                    <p>
+                        <label>Expire Date</label><br/>
+                        <input class="input" type="date" id="expiredate" name="expiredate" value="<?php echo $row['expiredate'];?>"/>
+                    </p>
+                </li>
+            </ul>
+        </td>
+    </tr>
+        <tr>
+            <td colspan="2" style="text-align: center;padding-top:20px;">
+                <input class='button' type="submit" id="submit-edit" value="SAVE"/>
+                &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+                <input class='button' id="edit-cancel" type="button" value="CANCEL"/></td>
+        </tr>
+    </table>
+</form>
